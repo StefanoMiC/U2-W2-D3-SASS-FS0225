@@ -215,6 +215,7 @@ select {
 }
 
 // CICLO EACH
+// @each $varName in $list {}
 
 // LISTE DI VALORI - liste di colori, misure, valori css validi
 
@@ -233,6 +234,12 @@ $colorMap: (
   blue: #0040ff,
   orange: #ff9100
 );
+
+// sintassi per un utilizzo con mappe:
+// @each $key, $value in $map {}
+
+// in questo caso andiamo a definire due variabili in cui la prima mi conterrà il nome della proprietà la seconda il valore corrispondente
+// diamogli il nome più appropriato. sapendo di ricevere un colore ho nominato la seconda $color, ma potevo anche chiamarla $value genericamente
 
 @each $key, $color in $colorMap {
   .square-#{$key} {

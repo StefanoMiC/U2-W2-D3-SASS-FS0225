@@ -6,6 +6,7 @@
 @import "./partials/reset";
 @import "./partials/placeholders";
 @import "./partials/mixins";
+@import "./partials/functions";
 
 .container {
   width: 100%;
@@ -202,6 +203,24 @@ select {
   );
 }
 
+.box-6 {
+  $padding: 1rem;
+  padding: $padding;
+  width: dynamicBox(200px, $padding);
+  height: dynamicBox(200px, $padding);
+  // width: 200px;
+  // height: 200px;
+  background-color: paleturquoise;
+}
+.box-7 {
+  $padding: 1rem;
+  padding: $padding;
+  min-width: dynamicBox(300px, $padding);
+  min-height: dynamicBox(300px, $padding);
+  display: inline-block;
+  background-color: paleturquoise;
+}
+
 // CICLI
 
 // CICLO FOR
@@ -244,5 +263,34 @@ $colorMap: (
 @each $key, $color in $colorMap {
   .square-#{$key} {
     background-color: $color;
+  }
+}
+
+.long-shadow {
+  margin-block: 10rem;
+
+  h2 {
+    text-align: center;
+    font: {
+      size: 66px;
+      weight: 900;
+      family: $font-sans-serif;
+    }
+    color: palegreen;
+    letter-spacing: -2px;
+    text-shadow: createLongShadow(black, 100);
+  }
+}
+
+$border-colors: red, green, blue, yellow, purple, coral, crimson, palegreen, palevioletred;
+.multiple-borders {
+  margin-block: 20rem;
+  div {
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    margin-inline: auto;
+    // box-shadow: createMultipleBorders($border-colors);
+    box-shadow: createMultipleBordersSteps(palevioletred, 20);
   }
 }
